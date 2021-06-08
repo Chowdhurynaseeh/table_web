@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A project to about html table with some js functionalities">
+    <meta name="keywords" content="html5, css3, html table, vanilla js">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <!--Custom css code here-->
+    <style>
+        .container{
+            margin-top: 3%;
+        }
+        .thead_color{
+            background-color: #17ac17;
+            color: #ffffff;
+        }
+        table.table-bordered{
+            border:1px solid #000000;
+            margin-top:20px;
+        }
+        table.table-bordered > thead > tr > th{
+            border:1px solid #000000;
+        }
+        table.table-bordered > tbody > tr > td{
+            border:1px solid #000000;
+        }
+        .button_message{
+            font-size: 15px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .user_btn {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .modal_btn {
+            border: none;
+            background-color: #180d7e;
+            color: #ffffff;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .modal-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        label {
+            font-weight: bold;
+        }
+        .form-control:focus {
+            border-color : #000000;
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(3, 3, 3, 0.5);
+        }
+
+    </style>
+    
+    <title>A table Project </title>
+  </head>
+  <body>
+
+    <!--Code for table creation and header section-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <span class="button_message">Total User List</span>
+                <button class="user_btn">ADD USER</button>
+            </div>
+            <div class="col-md-12 ">
+                <table class="table table-bordered table-sm">
+                    <thead class="thead_color">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Total Scan</th>
+                            <th scope="col">Total Schedule</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Last Login</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="name1">Abul</td>
+                            <td id="email1">abul@gmail</td>
+                            <td id="phone1">+85673212</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>Active</td>
+                            <td id="role1">Editor</td>
+                            <td>5 minutes ago</td>
+                            <td>
+                                <i class="fas fa-trash-alt"></i> &nbsp;
+                                <i class="fas fa-edit" id="pos1" data-toggle="modal" data-target="#modalcenter"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="name2">Kabul</td>
+                            <td id="email2">kabul@gmail</td>
+                            <td id="phone2">+85611221</td>
+                            <td>5</td>
+                            <td>2</td>
+                            <td>Active</td>
+                            <td id="role2">Moderator</td>
+                            <td>2 minutes ago</td>
+                            <td>
+                                <i class="fas fa-trash-alt"></i> &nbsp;
+                                <i class="fas fa-edit" id="pos2" data-toggle="modal" data-target="#modalcenter"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="name3">Dabul</td>
+                            <td id="email3">dabul@gmail</td>
+                            <td id="phone3">+85622331</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>Active</td>
+                            <td id="role3">Editor</td>
+                            <td>4 minutes ago</td>
+                            <td>
+                                <i class="fas fa-trash-alt"></i> &nbsp;
+                                <i class="fas fa-edit" id="pos3" data-toggle="modal" data-target="#modalcenter"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+
+  
+     <!-- Modal -->
+     <div class="modal fade in" id="modalcenter" tabindex="-1" role="dialog" aria-labelledby="modalcentertitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 text-center">
+                            <span class="modal-title" id="modalcentertitle">Edit Users</>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">
+                                <i class="fas fa-window-close" style="font-size: 18px;"></i>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Code for Form inside modal-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" aria-describedby="Name" value="" placeholder="Enter Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="email" value="" placeholder="Enter Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="text">Phone</label>
+                                    <input type="text" class="form-control" id="phone" aria-describedby="phone" value="" placeholder="Enter Phone no">
+                                </div>
+                                <div class="form-group">
+                                    <label for="role">Role</label>
+                                    <input type="text" class="form-control" id="role" aria-describedby="role" value="" placeholder="Enter Designation">
+                                </div>
+
+                                <button type="submit" class="modal_btn">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        var name_1 = document.getElementById("name1").innerHTML;
+        var email_1 = document.getElementById("email1").innerHTML;
+        var phone_1 = document.getElementById("phone1").innerHTML;
+        var role_1 = document.getElementById("role1").innerHTML;
+
+
+        var name_2 = document.getElementById("name2").innerHTML;
+        var email_2 = document.getElementById("email2").innerHTML;
+        var phone_2 = document.getElementById("phone2").innerHTML;
+        var role_2 = document.getElementById("role2").innerHTML;
+
+
+        var name_3 = document.getElementById("name3").innerHTML;
+        var email_3 = document.getElementById("email3").innerHTML;
+        var phone_3 = document.getElementById("phone3").innerHTML;
+        var role_3 = document.getElementById("role3").innerHTML;
+
+        //for selecting clicking menus
+        var pos_1 = document.getElementById("pos1");
+        var pos_2 = document.getElementById("pos2");
+        var pos_3 = document.getElementById("pos3");
+
+        //get input values 
+        var Name = document.getElementById("name");
+        var email = document.getElementById("email");
+        var phone = document.getElementById("phone");
+        var role = document.getElementById("role");
+
+        pos_1.addEventListener("click" , () => {
+            Name.value = name_1;
+            email.value = email_1;
+            phone.value = phone_1;
+            role.value = role_1;
+        });
+
+        pos_2.addEventListener("click" , () => {
+            Name.value = name_2;
+            email.value = email_2;
+            phone.value = phone_2;
+            role.value = role_2;
+        });
+
+        pos_3.addEventListener("click" , () => {
+            Name.value = name_3;
+            email.value = email_3;
+            phone.value = phone_3;
+            role.value = role_3;
+        });
+    </script>
+    </body>
+</html>
